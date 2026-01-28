@@ -7,7 +7,7 @@ f1 = 0.12
 f2 = 0.12
 mu1 = 0.7
 mu2 = 0.7
-
+buffer_size = 20
 
 
 def get_Nbuffer_matrix(r1, r2, f1, f2,mu1,mu2,buffer_size):
@@ -57,7 +57,8 @@ def getNbuffer_prop_dist(r1,r2,f1,f2,mu1,mu2,buffer_size):
     return p_buffer
  
 
-p = getNbuffer_prop_dist(r1,r2,f1,f2,mu1,mu2,20)
+
+p = getNbuffer_prop_dist(r1,r2,f1,f2,mu1,mu2,buffer_size)
 p_cumulative = np.cumsum(p)
 plt.xticks(range(len(p)))
 plt.bar(range(len(p)), p, alpha=0.5, label='Probability Density')
