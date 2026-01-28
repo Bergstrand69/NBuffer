@@ -57,7 +57,7 @@ def getNbuffer_prop_dist(r1,r2,f1,f2,mu1,mu2,buffer_size):
     return p_buffer
  
 
-p = getNbuffer_prop_dist(r1,r2,f1,f2,mu1,mu2,100)
+p = getNbuffer_prop_dist(r1,r2,f1,f2,mu1,mu2,20)
 p_cumulative = np.cumsum(p)
 plt.xticks(range(len(p)))
 plt.bar(range(len(p)), p, alpha=0.5, label='Probability Density')
@@ -66,14 +66,14 @@ plt.xlabel('Buffer State')
 plt.ylabel('Probability')
 plt.title('N-Buffer Probability Distribution')
 plt.legend()
-plt.show()
+
 
 alpha = 0.01
 threshold = 1 - alpha
 index = np.argmax(p_cumulative > threshold)
 print(f"First index where F(x)> {threshold}: {index}")
 print(f"P(X <= {index}) = {p_cumulative[index]:.4f}")
-
+plt.show()
 
 
 
